@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
           }
             else {
              
-              url = "/Login_faillure.html";
+              url = "/displayinfo.jsp";
               
           }
         
