@@ -21,52 +21,44 @@ public class NewCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        String url = "/New_customer.html";
-        
+        String url = "/index.html";
+      
+ 
         // get current action
         String action = request.getParameter("action");
         if (action == null) {
-            action = "join";  // deault action
+            action = "join";  // default action
         }
 
-        // perform action and set URL to appropriate page
-        if (action.equals("join")) {
-            url = "/Success.html";    // the "join" page
-        } 
-        else if (action.equals("add")) {
-            // get parameters from the request
-            String firstName = request.getParameter("firstName");
+        if (action.equals("add")) {   
+              String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");
+             String  Phone = request.getParameter("Phone");
+            String  Address= request.getParameter("Address");
+            String  City = request.getParameter("City");
+             String State = request.getParameter("State");
+            String Zipcode = request.getParameter("Zipcode");
+            
 
             // store data in User object
-            Customer customer = new Customer(firstName, lastName, email);
-
-            // validate the parameters
-            String message;
-            if(firstName.equals(null)&& lastName.equals(null)&& email.equals(null)
-                    
-                &&firstName.isEmpty() && lastName.isEmpty() && email.isEmpty()) {
-                message = "Please fill out all boxes";
-                url = "/displayinfo.jsp";
-            } 
-            else {
-                message = null;
-                //url = "/thanks.jsp";
-                //UserDB.insert(user);
-            }
-            request.setAttribute("Customer", customer);
-            request.setAttribute("message", message);
-        }
+          
+            Customer customer = new Customer(firstName, lastName, email,Phone , Address, City, State, Zipcode);
+            // get parameters from the request
+           request.setAttribute("Customer", customer);
+           url = "/Sucess.jsp";}
+              
+          
+        // forward request and response objects to specified URL
         getServletContext()
-                .getRequestDispatcher(url)
-                .forward(request, response);
-    }
+            .getRequestDispatcher(url)
+            .forward(request, response);
+    }    
     
     @Override
-    protected void doGet(HttpServletRequest request,
-            HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, 
+                          HttpServletResponse response) 
+                          throws ServletException, IOException {
         doPost(request, response);
     }    
 }

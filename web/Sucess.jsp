@@ -1,6 +1,6 @@
 <%-- 
-    Document   : displayinfo
-    Created on : Oct 24, 2016, 10:25:29 AM
+    Document   : Sucess
+    Created on : Oct 25, 2016, 9:28:57 PM
     Author     : hassane
 --%>
 
@@ -16,7 +16,7 @@
 <body>
 <div id="wrapper">
 <header><h1>Titan Online Banking Application</h1></header>
- 
+
 <nav>
 <ul>
  <li><a href="index.html">Home</a></li>
@@ -28,23 +28,28 @@
    
 </nav>
 <main>
-<h2>Account  Login Failure</h2>
+<h2>Account  Successfully Created</h2>
 <img  src=" images/bank1.jpg" alt="bank" width="320" height="250">
 
 
-  <div class="clear">Sorry the information that you Entered doesn't match<br>
-                     <br>
+  <div class="clear">Congratulation Your Account was successfully created<br>
+                     You can start using your Account<br>
         <br>
-<p>Here is the information that you entered:</p>
+        <p>Here is the information that you entered:</p>
   
-    <label>Username:</label>
-    <span>${Login.username}</span><br>
-    <label>Password:</label>
-    <span>${Login.password}</span><br>
-   
-      
-  </div>
+    <label>First Name:</label>
+    <span>${customer.firstName}</span><br>
+    <label>Last Name:</label>
+    <span>${customer.lastName}</span><br>
+  <br> 
  
+  <form action="" method="get">
+        <input type="hidden" name="action" value="join">
+        <input type="submit" value="Return">
+    </form>
+
+ 
+  </div>
 </main>
 <footer>Copyright &copy; 2016 Online Bank<br>
 <a href="mailto:Hassane@khouni.com">Hassane@khouni.com</a>
