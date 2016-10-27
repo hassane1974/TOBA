@@ -21,16 +21,16 @@ public class NewCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        String url = "/index.html";
+        String url = "/Sucess.jsp";
       
  
         // get current action
         String action = request.getParameter("action");
         if (action == null) {
-            action = "join";  // default action
+            action = "New_customer.html";  // default action
         }
 
-        if (action.equals("add")) {   
+        if (action.equals("Submit")) {   
               String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");

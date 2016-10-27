@@ -48,7 +48,7 @@ public class Customer implements Serializable {
         this.Zipcode= Zipcode;
     }
 
-    public Customer(String firstName, String lastName, String email, ContentType contentType) {
+    public Customer(String firstName, String lastName, String email,String Address, String City, String State, String Zipcode ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
