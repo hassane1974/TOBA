@@ -32,24 +32,26 @@
 <img  src=" images/bank1.jpg" alt="bank" width="320" height="250">
 
 
-  <div class="clear">Congratulation Your Account was successfully created<br>
+  Congratulation Your Account was successfully created<br>
                      You can start using your Account<br>
         <br>
         <p>Here is the information that you entered:</p>
   
     <label>First Name:</label>
-    <span>${customer.firstName}</span><br>
+    <span>${Customer.firstName}</span>
     <label>Last Name:</label>
-    <span>${customer.lastName}</span><br>
-  <br> 
+    <span>${Customer.lastName}</span><br>
+    <label>  Email: </label>
+    <spane>${Customer.email}</spane><br>
  
-  <form action="" method="get">
+    
+  <form action="index.html" method="get">
         <input type="hidden" name="action" value="join">
         <input type="submit" value="Return">
     </form>
 
  
-  </div>
+  
 </main>
 <footer>Copyright &copy; 2016 Online Bank<br>
 <a href="mailto:Hassane@khouni.com">Hassane@khouni.com</a>
