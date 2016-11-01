@@ -3,17 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/displayinfo.jsp</file>
-<<<<<<< HEAD
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/Login_faillure.html</file>
-=======
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/New_customer.html</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/styles/csstoba.css</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/NewCustomerServlet.java</file>
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/Login_faillure.html</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/New_customer.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/business/Customer.java</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/Login.html</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/Sucess.jsp</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/LoginServlet.java</file>
->>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

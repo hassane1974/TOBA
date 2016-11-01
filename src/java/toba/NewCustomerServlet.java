@@ -38,20 +38,22 @@ public class NewCustomerServlet extends HttpServlet {
             String State = request.getParameter("State");
             String Zipcode = request.getParameter("Zipcode");
 
-            // store data in User object
-            Customer customer = new Customer(firstName, lastName, email, Phone, Address, City, State, Zipcode);
             // get parameters from the request
             String message;
-            if (firstName.equals("")||lastName.equals("")||email.equals("")||Address.equals("")||City.equals("")||State.equals("")||Zipcode.equals("")) {
-            // forward to the view to get missing parameters
-            message="Please fill out all boxes";
-            url = "/New_customer.jsp";
-        } else 
-             message="";
-            url = "/Sucess.jsp";
-        
+            if (firstName.equals("") || lastName.equals("") || email.equals("") || Address.equals("") || City.equals("") || State.equals("") || Zipcode.equals("")) {
+                // forward to the view to get missing parameters
+                message = "***************Please fill out all boxes*******************";
+                url = "/New_customer.jsp";
+            } else {
+                message = "";
+                url = "/Sucess.jsp";
+            }
+            
+            // store data in User object
+            Customer customer = new Customer(firstName, lastName, email, Phone, Address, City, State, Zipcode);
             request.setAttribute("Customer", customer);
-            //url = "/Sucess.jsp";
+            request.setAttribute("message",message);
+            
         }
 
         // forward request and response objects to specified URL
@@ -59,7 +61,6 @@ public class NewCustomerServlet extends HttpServlet {
                 .getRequestDispatcher(url)
                 .forward(request, response);
 
-        
     }
 
     @Override

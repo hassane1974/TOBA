@@ -5,8 +5,6 @@
  */
 package business;
 
-import com.oracle.jrockit.jfr.ContentType;
-import java.io.Serializable;
 
 /**
  *
@@ -17,7 +15,7 @@ public class Customer implements Serializable {
 
     private String firstName;
     private String lastName;
-    private String email;
+    public String email;
     private String Phone;
      private String Address;
     private String City;

@@ -38,9 +38,23 @@
         <p>Here is the information that you entered:</p>
   
     <label>First Name:</label>
-    <span>${customer.firstName}</span><br>
+    <span>${Customer.firstName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+     <label>City:</label>
+    <span>${Customer.city}</span><br>
     <label>Last Name:</label>
-    <span>${customer.lastName}</span><br>
+    <span>${Customer.lastName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+     <label>Phone number:</label>
+    <span>${Customer.phone}</span><br>
+   
+     <label>Email:</label>
+    <span>${Customer.email}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label>Address:</label>
+    <span>${Customer.address}</span><br>
+     <label>State:</label>
+    <span>${Customer.state}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <label>ZipCode:</label>
+    <span>${Customer.zipcode}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
   <br> 
  
   <form action="" method="get">

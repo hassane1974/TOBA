@@ -1,24 +1,22 @@
 package business;
 
-
 import java.io.Serializable;
 
 public class Login implements Serializable {
 
     private String Username;
     private String Password;
-    
 
     public Login() {
         Username = "";
         Password = "";
-        
+
     }
 
     public Login(String Username, String Password) {
         this.Username = Username;
         this.Password = Password;
-        
+
     }
 
     public String getUsername() {
@@ -37,7 +35,6 @@ public class Login implements Serializable {
         this.Password = Password;
     }
 
- 
 }
 
 /*
@@ -45,9 +42,7 @@ public class Login implements Serializable {
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author hassane
  */
-
