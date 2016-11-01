@@ -42,7 +42,7 @@ public class NewCustomerServlet extends HttpServlet {
             String message;
             if (firstName.equals("") || lastName.equals("") || email.equals("") || Address.equals("") || City.equals("") || State.equals("") || Zipcode.equals("")) {
                 // forward to the view to get missing parameters
-                message = "***************Please fill out all boxes*******************";
+                message = "*********Please fill out all boxes**************";
                 url = "/New_customer.jsp";
             } else {
                 message = "";
