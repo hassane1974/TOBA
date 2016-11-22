@@ -10,7 +10,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="/header.html" />
 
-
 <div id="wrapper">
     <header><h1>Titan Online Banking Application</h1></header>
 
@@ -20,7 +19,7 @@
             <li><a href="Login.jsp">Login</a></li>
             <li><a href="Account_activity.jsp">Account activity</a></li>
             <li><a href="Transaction.jsp">Transaction</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="transfer.jsp">Transfer</a></li>
         </ul>
 
     </nav>
@@ -36,10 +35,7 @@
 
         </div>
 
-        <%
-            User user = (User) session.getAttribute("user");
-        %>
-        <%-- <c:set target="${user}"property="firstName" /> --%>
+      
         <c:if test="${user == null}">
             <p> Not Logged In</P>
             </c:if> 

@@ -10,12 +10,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="/header.html" />
 
-<% User user = (User) session.getAttribute("user");
-
-    if (user == null) {
-        user = new User();
-    }
-%>
 <div id="wrapper">
     <header><h1>Titan Online Banking Application</h1></header>
 
@@ -25,7 +19,7 @@
             <li><a href="Login.jsp">Login</a></li>
             <li><a href="Account_activity.jsp">Account activity</a></li>
             <li><a href="Transaction.jsp">Transaction</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="transfer.jsp">Transfer</a></li>
         </ul>
 
     </nav>
@@ -37,7 +31,7 @@
 
         <form action="PasswordChangeServlet" method="post">
             <label>Username:</label>
-            <span><%= user.getUserName()%></span><br>
+            <span>${user.userName}</span><br>
             <label class="pad_top">Password:</label>
     <input type="text" name="NewPassword" value="${user.passWord}"><br>
            <%-- <label>Password:</label>

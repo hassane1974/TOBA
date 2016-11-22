@@ -15,9 +15,16 @@ package business;
  *
  * @author hassane
  */import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 public class User implements Serializable {
-    
-public String userName;
+ @Id
+ @GeneratedValue(strategy = GenerationType.AUTO)
+private long UserID;
+private String userName;
 public String passWord;
     private String firstName;
     private String lastName;
@@ -27,8 +34,7 @@ public String passWord;
     private String City;
     private String State;
      private String Zipcode;
-    
-
+  
     public User() {
         firstName = "";
         lastName = "";
@@ -58,7 +64,12 @@ public String passWord;
     public User(String userName,String passWord, String firstName, String lastName, String email,String Address, String City, String State, String Zipcode ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+  
+ public long getUserID(){
+     return UserID;}   
+ public void setUserID(long UserID){
     
+     this.UserID=UserID;}
  public String getUserName() {
         return userName;
     }
@@ -69,7 +80,7 @@ public String passWord;
         return passWord;
     }
    public void setPassWord(String password) {
-        this.passWord = passWord;
+        this.passWord = password;
     }
     public String getFirstName() {
         return firstName;

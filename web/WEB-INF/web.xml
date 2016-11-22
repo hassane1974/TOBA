@@ -3,32 +3,36 @@
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>toba.LoginServlet</servlet-class>
-       </servlet> 
+    </servlet>
     <servlet>
         <servlet-name>NewCustomerServlet</servlet-name>
         <servlet-class>toba.NewCustomerServlet</servlet-class>
-    </servlet> 
+    </servlet>
+    <servlet>
+        <servlet-name>PasswordChangeServlet</servlet-name>
+        <servlet-class>toba.PasswordChangeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
-      </servlet-mapping> 
-      <servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>NewCustomerServlet</servlet-name>
         <url-pattern>/join</url-pattern>
-     </servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PasswordChangeServlet</servlet-name>
+        <url-pattern>/PasswordChangeServlet</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-     
-      <error-page>
+    <error-page>
         <error-code>404</error-code>
         <location>/error_404.jsp</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>
         <location>/error_java.jsp</location>
-    </error-page>  
-        
-        
-   
+    </error-page>
 </web-app>

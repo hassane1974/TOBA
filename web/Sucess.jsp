@@ -4,26 +4,20 @@
     Author     : hassane
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
-<html lang="en">
-<head>
-<title>Account_created</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="styles/csstoba.css">
-</head>
-<body>
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="/header.html" />
 <div id="wrapper">
 <header><h1>Titan Online Banking Application</h1></header>
 
 <nav>
 <ul>
- <li><a href="index.html">Home</a></li>
-      <li><a href="Login.html">Login</a></li>
-      <li><a href="Account_activity.html">Account activity</a></li>
-      <li><a href="Transaction.html">Transaction</a></li>
-      <li><a href="contact.html">Contact</a></li>
+ <li><a href="index.jsp">Home</a></li>
+      <li><a href="Login.jsp">Login</a></li>
+      <li><a href="Account_activity.jsp">Account activity</a></li>
+      <li><a href="Transaction.jsp">Transaction</a></li>
+      <li><a href="transfer.jsp">Transfer</a></li>
  </ul>
    
 </nav>
@@ -36,24 +30,27 @@
                      You can start using your Account<br>
         <br>
         <p>Here is the information that you entered:</p>
-  
+   <label>Username:</label>
+    <span>${user.userName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+     <label>Password:</label>
+    <span>${user.passWord}</span>&nbsp;&nbsp;&nbsp;&nbsp;
     <label>First Name:</label>
-    <span>${Customer.firstName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>${user.firstName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
      <label>City:</label>
-    <span>${Customer.city}</span><br>
+    <span>${user.city}</span><br>
     <label>Last Name:</label>
-    <span>${Customer.lastName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>${user.lastName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
      <label>Phone number:</label>
-    <span>${Customer.phone}</span><br>
+    <span>${user.phone}</span><br>
    
      <label>Email:</label>
-    <span>${Customer.email}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>${user.email}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <label>Address:</label>
-    <span>${Customer.address}</span><br>
+    <span>${user.address}</span><br>
      <label>State:</label>
-    <span>${Customer.state}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>${user.state}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      <label>ZipCode:</label>
-    <span>${Customer.zipcode}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>${user.zipcode}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
   <br> 
  
@@ -65,9 +62,4 @@
  
   </div>
 </main>
-<footer>Copyright &copy; 2016 Online Bank<br>
-<a href="mailto:Hassane@khouni.com">Hassane@khouni.com</a>
-</footer>
-</div>
-</body>
-</html>
+    <c:import url="/footer.jsp" />

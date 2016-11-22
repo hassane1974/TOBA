@@ -2,8 +2,8 @@ package toba;
 
 import business.Login;
 import business.User;
+import data.UserDB;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
             String username = request.getParameter("Username");
 
             String password = request.getParameter("Password");
+             User user = new User();
             String message = null;
             if (username.equals("") || password.equals("")) {
                 // forward to the view to get missing parameters
@@ -47,23 +48,28 @@ public class LoginServlet extends HttpServlet {
             else{  
                 message = "";       
             } 
-                
+             
  
             
             // store data in User object and save User object in database
             Login login = new Login(username, password);
-             User user;
-             HttpSession session = request.getSession();
-            user = (User) session.getAttribute("user");
+             //User user;
+            
              
-            session.setAttribute("user", user);
+            user = UserDB.selectUser(username,password);
+            //session.setAttribute("user", user);
             // set User object in request object and set URL
             request.setAttribute("Login", login);
             request.setAttribute("message", message);
             // url = "/index.html";   // 
-
-            if (username.equals(user.userName)&& password.equals(user.passWord)) {
-
+             
+            
+            if (UserDB.userExists(username,password))
+                 //   && password.equals((UserDB.userExists(user.getPassWord()))))
+            {
+               
+               HttpSession session = request.getSession();
+               session.setAttribute("user", user);
                 url = "/Account_activity.jsp";
             } else {
                 
