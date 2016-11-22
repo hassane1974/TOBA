@@ -11,6 +11,7 @@ package business;
  */
 
 
+import data.AccountDB;
 /**
  *
  * @author hassane
@@ -140,5 +141,18 @@ public String passWord;
 
     public void setZipcode(String Zipcode) {
         this.Zipcode = Zipcode;
+    }
+    
+    public double getCheckingBalance(){
+        Account checking = AccountDB.selectAccount(this, "checking");
+        if (checking != null) 
+            return checking.getStartingBal();
+        return 0.00;
+    }
+    public double getSavingsBalance(){
+        Account savings = AccountDB.selectAccount(this, "savings");
+        if (savings != null) 
+            return savings.getStartingBal();
+        return 0.00;
     }
 }

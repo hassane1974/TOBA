@@ -51,7 +51,7 @@
     <span>${user.state}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      <label>ZipCode:</label>
     <span>${user.zipcode}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
+  
   <br> 
  
   <form action="" method="get">

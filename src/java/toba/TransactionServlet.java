@@ -9,8 +9,11 @@ package toba;
 
 
 import business.Account;
+import static business.Account_.user;
+import business.User;
 import business.transaction;
 import data.AccountDB;
+import data.UserDB;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,13 +29,16 @@ public class TransactionServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
         String amount = request.getParameter("amount");
         
-        HttpSession session = request.getSession();
-        Account checking = (Account)session.getAttribute("checking");
-        Account savings = (Account)session.getAttribute("savings");
+        
+        session.setAttribute("user", user);
+        Account checking = AccountDB.selectAccount(user, "checking");
+        Account savings = AccountDB.selectAccount(user, "savings");
+        //Account checking = (Account)session.getAttribute("checking");
+        // Account savings = (Account)session.getAttribute("savings");
         
         Double checkingBal = checking.getStartingBal();
         Double savingsBal = savings.getStartingBal();
@@ -50,12 +56,12 @@ public class TransactionServlet extends HttpServlet {
         
         AccountDB.update(savings);
         AccountDB.update(checking);
-           // User user = (User)session.getAttribute("user");
+       // User user = (User)session.getAttribute("user");
         session.setAttribute("checking", checking);
         session.setAttribute("savings", savings);
         
         getServletContext()
-            .getRequestDispatcher("/account_activity.jsp")
+            .getRequestDispatcher("/Account_activity.jsp")
             .forward(request, response);
     }
 

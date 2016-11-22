@@ -1,7 +1,9 @@
 package toba;
 
+import business.Account;
 import business.Login;
 import business.User;
+import data.AccountDB;
 import data.UserDB;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -39,40 +41,35 @@ public class LoginServlet extends HttpServlet {
             String username = request.getParameter("Username");
 
             String password = request.getParameter("Password");
-             User user = new User();
+            User user = new User();
+            Account account = new Account();
             String message = null;
             if (username.equals("") || password.equals("")) {
                 // forward to the view to get missing parameters
                 message = "*********Please fill out all boxes**************";
-                url = "/Login.jsp";}
-            else{  
-                message = "";       
-            } 
-             
- 
-            
+                url = "/Login.jsp";
+            } else {
+                message = "";
+            }
+
             // store data in User object and save User object in database
             Login login = new Login(username, password);
-             //User user;
-            
-             
-            user = UserDB.selectUser(username,password);
-            //session.setAttribute("user", user);
-            // set User object in request object and set URL
+            HttpSession session = request.getSession();
+
+            user = UserDB.selectUser(username, password);
+
+            session.setAttribute("user", user);
+            //set User object in request object and set URL
             request.setAttribute("Login", login);
             request.setAttribute("message", message);
             // url = "/index.html";   // 
-             
-            
-            if (UserDB.userExists(username,password))
-                 //   && password.equals((UserDB.userExists(user.getPassWord()))))
-            {
-               
-               HttpSession session = request.getSession();
-               session.setAttribute("user", user);
+
+            if (UserDB.userExists(username, password)) {
+
+                session.setAttribute("user", user);
                 url = "/Account_activity.jsp";
             } else {
-                
+
                 url = "/displayinfo.jsp";
 
             }
@@ -92,4 +89,5 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         doPost(request, response);
     }
+
 }

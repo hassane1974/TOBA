@@ -45,9 +45,14 @@
 
         <label>Last Name:</label>
         <span>${user.lastName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-
-
+<%--
+  
+--%>
+<p>Checking account balance: ${user.getCheckingBalance()}</p>
+  <p>Savings account balance: ${user. getSavingsBalance()}</p>
 </div>               
-
+ 
 </main>
 <c:import url="/footer.jsp" />
+
+

@@ -24,13 +24,33 @@
    
 </nav>
 <main>
-<h2>Transaction</h2>
-<img  src=" images/bank1.jpg" alt="bank" width="320" height="250">
+<h2>Transactions</h2>
+<%--<img  src=" images/bank1.jpg" alt="bank" width="320" height="250">
 
-
-  <div class="clear">The content of this page is coming soon<br>
-                     Under construction<br>
-        <br>
+--%>
+  <div class="clear"><br>
+        <h2>Checking Account:</h2>
+            <table>
+        <c:forEach var="t" items="${checking.transactions}">
+        <tr>
+            <td>${t.startingBal}</td>
+            <td>${t.finalBalance}</td>
+            <td>${t.amountTransferred}</td>
+            <td>${t.function}</td>
+        </tr>
+        </c:forEach> 
+            </table>
+             <h2>Savings Account:</h2>
+            <table>
+        <c:forEach var="t" items="${savings.transactions}">
+        <tr>
+            <td>${t.startingBal}</td>
+            <td>${t.finalBalance}</td>
+            <td>${t.amountTransferred}</td>
+            <td>${t.function}</td>
+        </tr>
+        </c:forEach> 
+            </table> 
   <br> 
   
   <br>

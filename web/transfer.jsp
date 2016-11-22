@@ -23,12 +23,12 @@
 </nav>
 <main>
 <h2>Transfer Funds</h2>
- <p>Checking account balance: ${checking.startingBal}</p>
-  <p>Savings account balance: ${savings.startingBal}</p>
+ <p>Checking account balance: ${user.getCheckingBalance()}</p>
+  <p>Savings account balance: ${user. getSavingsBalance()}</p>
  <form action="TransactionServlet" method="post">
       <label class="pad_top">Specify Amount to Transfer:</label>
         <input type="text" name="amount" required><br>
-        <input type="submit" value="Transfer" class="margin_left">
+        <input type="submit" value="submit Transfer" class="margin_left">
       
  </form>
 

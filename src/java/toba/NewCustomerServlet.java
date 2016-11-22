@@ -59,11 +59,10 @@ public class NewCustomerServlet extends HttpServlet {
             }
 
             // store data in User object
-            User user = new User();
+           
 
-            Account checking = new Account("checking", 0, user);
-            Account savings = new Account("savings", 25.0, user);
-
+           
+User user = new User();
             user.setUserName(lastName + Zipcode);
             user.setPassWord("welcome1");
             user.setEmail(email);
@@ -75,14 +74,16 @@ public class NewCustomerServlet extends HttpServlet {
             user.setCity(City);
             user.setState(State);
             user.setZipcode(Zipcode);
+            
             //(userName,passWord,firstName, lastName, email, Phone, Address, City, State, Zipcode);
-
+            Account checking = new Account("Checking", 0, user);
+            Account savings = new Account("Savings", 25.0, user);
             UserDB.insert(user);
             AccountDB.insert(checking);
             AccountDB.insert(savings);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            //request.setAttribute("user", user);
+            request.setAttribute("user", user);
             request.setAttribute("message", message);
             session.setAttribute("s", s);
             Date currentDate = new Date();

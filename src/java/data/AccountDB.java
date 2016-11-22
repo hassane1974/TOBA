@@ -39,10 +39,11 @@ public class AccountDB {
         }
     }
 //Method
+     
 public static Account selectAccount(User user, String account){
     EntityManager em = DBUtil.getEmFactory().createEntityManager();
-    String qString = "SELECT a FROM account a " + 
-            "WHERE a.user = :USER_USERID AND a.accountType = :ACCOUNTTYPE";
+    String qString = "SELECT a FROM Account a " + 
+            "WHERE a.user = :user AND a.accountType= :ACCOUNT";
     TypedQuery<Account> q = em.createQuery(qString, Account.class);
     q.setParameter("user", user);
     q.setParameter("ACCOUNT", account);
@@ -54,6 +55,5 @@ public static Account selectAccount(User user, String account){
     } finally {
         em.close();
     }
-    
 }
 }
