@@ -16,10 +16,13 @@ import data.AccountDB;
  *
  * @author hassane
  */import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Entity
 public class User implements Serializable {
  @Id
@@ -27,6 +30,9 @@ public class User implements Serializable {
 private long UserID;
 private String userName;
 public String passWord;
+public String salt;
+
+   
     private String firstName;
     private String lastName;
     public String email;
@@ -34,8 +40,8 @@ public String passWord;
      private String Address;
     private String City;
     private String State;
-     private String Zipcode;
-  
+     private String Zipcode; 
+     private long date;
     public User() {
         firstName = "";
         lastName = "";
@@ -47,6 +53,8 @@ public String passWord;
         Zipcode="";
         userName="";
         passWord="";
+        salt="";
+       date = new Date().getTime();
     }
 
     public User(String userName,String passWord,String firstName, String lastName, String email,String Phone,String Address, String City, String State,String Zipcode) {
@@ -60,6 +68,9 @@ public String passWord;
         this.City = City;
         this.State = State;
         this.Zipcode= Zipcode;
+        this.date = date;
+        this.salt = "";
+        //this.date=new Date().getTime();
     }
 
     public User(String userName,String passWord, String firstName, String lastName, String email,String Address, String City, String State, String Zipcode ) {
@@ -76,6 +87,17 @@ public String passWord;
     }
   public void setUserName(String userName) {
         this.userName = userName;
+    }
+   public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public long getDate() {
+        return date;
     }
   public String getPassWord() {
         return passWord;
@@ -155,4 +177,5 @@ public String passWord;
             return savings.getStartingBal();
         return 0.00;
     }
+    
 }

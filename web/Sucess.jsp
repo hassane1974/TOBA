@@ -14,6 +14,7 @@
 <nav>
 <ul>
  <li><a href="index.jsp">Home</a></li>
+ <li><a href="admin/reports.jsp">Reports</a></li>
       <li><a href="Login.jsp">Login</a></li>
       <li><a href="Account_activity.jsp">Account activity</a></li>
       <li><a href="Transaction.jsp">Transaction</a></li>
@@ -32,8 +33,6 @@
         <p>Here is the information that you entered:</p>
    <label>Username:</label>
     <span>${user.userName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-     <label>Password:</label>
-    <span>${user.passWord}</span>&nbsp;&nbsp;&nbsp;&nbsp;
     <label>First Name:</label>
     <span>${user.firstName}</span>&nbsp;&nbsp;&nbsp;&nbsp;
      <label>City:</label>
@@ -51,8 +50,6 @@
     <span>${user.state}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      <label>ZipCode:</label>
     <span>${user.zipcode}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  
-  <br> 
  
   <form action="" method="get">
         <input type="hidden" name="action" value="join">

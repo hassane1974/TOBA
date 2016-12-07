@@ -2,10 +2,12 @@ package toba;
 
 import business.Account;
 import business.Login;
+import business.PasswordUtil;
 import business.User;
 import data.AccountDB;
 import data.UserDB;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +43,7 @@ public class LoginServlet extends HttpServlet {
             String username = request.getParameter("Username");
 
             String password = request.getParameter("Password");
-            User user = new User();
+            User user = UserDB.selectUser(username);
             Account account = new Account();
             String message = null;
             if (username.equals("") || password.equals("")) {
@@ -56,15 +58,23 @@ public class LoginServlet extends HttpServlet {
             Login login = new Login(username, password);
             HttpSession session = request.getSession();
 
-            user = UserDB.selectUser(username, password);
-
+            String salt = "";
+            String saltedAndHashedPassword;
+            try {
+            
+                salt = user.getSalt();
+                saltedAndHashedPassword = PasswordUtil.hashPassword(password + salt);                    
+        } catch (NoSuchAlgorithmException ex) {
+            saltedAndHashedPassword = ex.getMessage();
+        }
+            
             session.setAttribute("user", user);
             //set User object in request object and set URL
             request.setAttribute("Login", login);
             request.setAttribute("message", message);
             // url = "/index.html";   // 
 
-            if (UserDB.userExists(username, password)) {
+            if (user.getPassWord().equals(saltedAndHashedPassword)) {
 
                 session.setAttribute("user", user);
                 url = "/Account_activity.jsp";

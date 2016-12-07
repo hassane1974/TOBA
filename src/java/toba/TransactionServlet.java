@@ -25,14 +25,14 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet( urlPatterns = {"/TransactionServlet"})
 public class TransactionServlet extends HttpServlet {
-
-    
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         String amount = request.getParameter("amount");
-        
+        String message1="";
+        String url="";
         
         session.setAttribute("user", user);
         Account checking = AccountDB.selectAccount(user, "checking");
@@ -42,7 +42,12 @@ public class TransactionServlet extends HttpServlet {
         
         Double checkingBal = checking.getStartingBal();
         Double savingsBal = savings.getStartingBal();
-        
+        if ( Double.parseDouble(amount) >= savingsBal){ 
+           message1="Insufficient Amount";
+              url = "/transfer.jsp";
+              request.setAttribute("message1", message1);
+        } 
+        else {
         checking.credit(Double.parseDouble(amount));
         transaction t1 = new transaction(
                 checkingBal, Double.parseDouble(amount), checking.getStartingBal(), "Credit");
@@ -59,11 +64,14 @@ public class TransactionServlet extends HttpServlet {
        // User user = (User)session.getAttribute("user");
         session.setAttribute("checking", checking);
         session.setAttribute("savings", savings);
-        
-        getServletContext()
-            .getRequestDispatcher("/Account_activity.jsp")
-            .forward(request, response);
-    }
+        request.setAttribute("message1", message1);
+         url=  "/Account_activity.jsp" ;
+       
+        }
+    getServletContext()
+            .getRequestDispatcher(url)
+                  //  )
+            .forward(request, response);}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -79,7 +87,7 @@ public class TransactionServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
+ 
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -93,7 +101,6 @@ public class TransactionServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
     /**
      * Returns a short description of the servlet.
      *

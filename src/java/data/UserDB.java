@@ -8,15 +8,17 @@ package data;
 
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import business.User;
+import java.util.List;
 
 public class UserDB {
-
+     
     public static void insert(User user) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
@@ -47,14 +49,14 @@ public class UserDB {
         }
     }
 
-    public static User selectUser(String userName, String passWord) {
+    public static User selectUser(String userName) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         String qString = "SELECT u FROM User u " +
-                "WHERE u.userName = :UserName AND u.passWord =:PassWord" ;
+                "WHERE u.userName = :UserName";
         TypedQuery<User> q = em.createQuery(qString, User.class);
         q.setParameter("UserName", userName);
         
-      q.setParameter("PassWord", passWord);
+      //q.setParameter("PassWord", passWord);
         try {
             User user = q.getSingleResult();
             return user;
@@ -64,8 +66,25 @@ public class UserDB {
             em.close();
         }
     }
-    public static boolean userExists(String userName,String passWord) {
-        User u = selectUser(userName,passWord);   
+    public static boolean userExists(String userName) {
+        User u = selectUser(userName);   
         return u != null;
     }
+    
+    
+    public static List<User> selectUsers() {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        List<User> users;
+        String qString = "SELECT u FROM User u ";
+        TypedQuery<User> q = em.createQuery(qString, User.class);
+
+        try {
+            users = q.getResultList();
+            return users;
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+}
 }

@@ -14,6 +14,7 @@
 <nav>
 <ul>
  <li><a href="index.jsp">Home</a></li>
+ <li><a href="admin/reports.jsp">Reports</a></li>
       <li><a href="Login.jsp">Login</a></li>
       <li><a href="Account_activity.jsp">Account activity</a></li>
       <li><a href="Transaction.jsp">Transaction</a></li>
@@ -22,7 +23,9 @@
    
 </nav>
 <main>
-<h2>Transfer Funds</h2>
+   
+<h2>Transfer Funds</h2> 
+<h4><i> ${message1}</i></h4>
  <p>Checking account balance: ${user.getCheckingBalance()}</p>
   <p>Savings account balance: ${user. getSavingsBalance()}</p>
  <form action="TransactionServlet" method="post">
@@ -31,7 +34,7 @@
         <input type="submit" value="submit Transfer" class="margin_left">
       
  </form>
-
+ 
   <br> 
   
   <br>

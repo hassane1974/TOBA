@@ -6,6 +6,7 @@ package toba;
  * and open the template in the editor.
  */
 import business.Account;
+import business.PasswordUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import business.User;
 import data.AccountDB;
 import data.UserDB;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import javax.persistence.ManyToOne;
 import javax.servlet.http.HttpSession;
@@ -46,7 +48,7 @@ public class NewCustomerServlet extends HttpServlet {
             // String userName=lastName+Zipcode;
             String s = "welcome1";
             String passWord = s;
-
+            //long date = request.getDate("date");
             // get parameters from the request
             String message;
             if (firstName.equals("") || lastName.equals("") || email.equals("") || Address.equals("") || City.equals("") || State.equals("") || Zipcode.equals("")) {
@@ -64,7 +66,7 @@ public class NewCustomerServlet extends HttpServlet {
            
 User user = new User();
             user.setUserName(lastName + Zipcode);
-            user.setPassWord("welcome1");
+            //user.setPassWord("welcome1");
             user.setEmail(email);
             user.setFirstName(firstName);
             user.setLastName(lastName);
@@ -78,6 +80,37 @@ User user = new User();
             //(userName,passWord,firstName, lastName, email, Phone, Address, City, State, Zipcode);
             Account checking = new Account("Checking", 0, user);
             Account savings = new Account("Savings", 25.0, user);
+            
+            
+            //=============================
+            
+            try {
+            PasswordUtil.checkPasswordStrength(passWord);
+            message = "";
+        } catch (Exception e) {
+            message = e.getMessage();
+        }
+        request.setAttribute("message", message);        
+        
+        // hash and salt password
+        String hashedPassword;
+        String salt = "";
+        String saltedAndHashedPassword;
+        try {
+            
+            salt = PasswordUtil.getSalt();
+            saltedAndHashedPassword = PasswordUtil.hashPassword(passWord + salt);                    
+            user.setPassWord(saltedAndHashedPassword);
+            user.setSalt(salt);
+        } catch (NoSuchAlgorithmException ex) {
+            hashedPassword = ex.getMessage();
+            saltedAndHashedPassword = ex.getMessage();
+        }
+      
+            
+            
+            
+            //------------------------
             UserDB.insert(user);
             AccountDB.insert(checking);
             AccountDB.insert(savings);
@@ -88,7 +121,10 @@ User user = new User();
             session.setAttribute("s", s);
             Date currentDate = new Date();
             request.setAttribute("currentDate", currentDate);
-
+  
+           // session.setAttribute("hashedPassword", hashedPassword);
+        session.setAttribute("salt", salt);
+        session.setAttribute("saltedAndHashedPassword", saltedAndHashedPassword);
         }
 
         // forward request and response objects to specified URL

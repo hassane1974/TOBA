@@ -5,9 +5,11 @@
  */
 package toba;
 
+import business.PasswordUtil;
 import business.User;
 import data.UserDB;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +52,40 @@ public class PasswordChangeServlet extends HttpServlet {
            
             session.setAttribute("user", user);
             request.setAttribute("s", s); 
+            
+            
+            /*==========================================================*/
+              String message;
+        try {
+            PasswordUtil.checkPasswordStrength(user.passWord);
+            message = "";
+        } catch (Exception e) {
+            message = e.getMessage();
+            url = "/password_reset.jsp";
+        }
+        request.setAttribute("message", message);        
+        
+        // hash and salt password
+        String hashedPassword;
+        String salt = "";
+        String saltedAndHashedPassword;
+        try {
+            hashedPassword = PasswordUtil.hashPassword(user.passWord);
+            salt = PasswordUtil.getSalt();
+            saltedAndHashedPassword = PasswordUtil.hashAndSaltPassword(user.passWord);                    
+            
+        } catch (NoSuchAlgorithmException ex) {
+            hashedPassword = ex.getMessage();
+            saltedAndHashedPassword = ex.getMessage();
+        }
+        session.setAttribute("hashedPassword", hashedPassword);
+        session.setAttribute("salt", salt);
+        session.setAttribute("saltedAndHashedPassword", saltedAndHashedPassword);
+            
+           request.setAttribute("message", message);  
+            
+           /*          =================================== */
+            
             UserDB.update(user);
             // set User object in request object and set URL
 

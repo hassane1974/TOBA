@@ -16,6 +16,7 @@
     <nav>
         <ul>
             <li><a href="index.jsp">Home</a></li>
+            <li><a href="admin/reports.jsp">Reports</a></li>
             <li><a href="Login.jsp">Login</a></li>
             <li><a href="Account_activity.jsp">Account activity</a></li>
             <li><a href="Transaction.jsp">Transaction</a></li>
@@ -28,7 +29,7 @@
         <img  src=" images/bank1.jpg" alt="bank" width="320" height="250">
         <br>
 
-
+<p><i>${message}</i></p>
         <form action="PasswordChangeServlet" method="post">
             <label>Username:</label>
             <span>${user.userName}</span><br>
@@ -41,9 +42,7 @@
 
             <input type="submit" value="Change" id="submit">
         </form>
-
-
-
+ 
     </main>
 
 

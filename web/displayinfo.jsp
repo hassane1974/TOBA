@@ -14,7 +14,9 @@
 <nav>
 <ul>
  <li><a href="index.jsp">Home</a></li>
-      <li><a href="Login.jsp">Login</a></li>
+ <li><a href="Login.jsp">Login</a></li>
+ <li><a href="admin/reports.jsp">Reports</a></li>
+      
       <li><a href="Account_activity.jsp">Account activity</a></li>
       <li><a href="Transaction.jsp">Transaction</a></li>
       <li><a href="transfer.jsp">Transfer</a></li>
