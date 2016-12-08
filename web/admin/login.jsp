@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="/header.html" />
-<link rel="stylesheet" href="/styles/csstoba.css">
+<!--<link rel="stylesheet" href="/styles/csstoba.css">-->
 <div id="wrapper">
 <header><h1>Titan Online Banking Application</h1></header>
 

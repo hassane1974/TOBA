@@ -3,19 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/filters/TestFilter1.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/password_reset.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/filters/CookieUtil.java</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/Login.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/Account_activity.jsp</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/data/UserDB.java</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/transfer.jsp</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/UserTableGZIPServlet.java</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/UserTableSpreadsheetServlet.java</file>
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/META-INF/context.xml</file>
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/admin/login.jsp</file>
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/admin/reports.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/data/DBUtil.java</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/admin/login_error.jsp</file>
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/ReportsServlet.java</file>
-            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/TransactionServlet.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/filters/LogRequestFilter.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/data/AccountDB.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/filters/TestFilter2.java</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/LoginServlet.java</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/business/User.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/index.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/business/Login.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/NewCustomerServlet.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/filters/TestInitParamsFilter.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/admin/login.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/Transaction.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/filters/TestFilter3.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/admin/reports.jsp</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/PasswordChangeServlet.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/ReportsServlet.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/business/Account.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/src/java/toba/TransactionServlet.java</file>
+            <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/header.html</file>
             <file>file:/C:/Users/hassane/Documents/NetBeansProjects/TOBA/web/WEB-INF/web.xml</file>
         </group>
     </open-files>

@@ -76,8 +76,7 @@ User user = new User();
             user.setCity(City);
             user.setState(State);
             user.setZipcode(Zipcode);
-            
-            //(userName,passWord,firstName, lastName, email, Phone, Address, City, State, Zipcode);
+           
             Account checking = new Account("Checking", 0, user);
             Account savings = new Account("Savings", 25.0, user);
             

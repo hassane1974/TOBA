@@ -77,6 +77,7 @@ public class LoginServlet extends HttpServlet {
             if (user.getPassWord().equals(saltedAndHashedPassword)) {
 
                 session.setAttribute("user", user);
+                session.setAttribute("password", password);
                 url = "/Account_activity.jsp";
             } else {
 
@@ -85,7 +86,7 @@ public class LoginServlet extends HttpServlet {
             }
 
         }
-
+ 
         // forward request and response objects to specified URL
         getServletContext()
                 .getRequestDispatcher(url)

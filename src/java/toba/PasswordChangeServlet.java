@@ -10,6 +10,7 @@ import business.User;
 import data.UserDB;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,12 +57,12 @@ public class PasswordChangeServlet extends HttpServlet {
             
             /*==========================================================*/
               String message;
-        try {
-            PasswordUtil.checkPasswordStrength(user.passWord);
+        
+            try {
+            PasswordUtil.checkPasswordStrength(s);
             message = "";
         } catch (Exception e) {
             message = e.getMessage();
-            url = "/password_reset.jsp";
         }
         request.setAttribute("message", message);        
         
@@ -70,19 +71,18 @@ public class PasswordChangeServlet extends HttpServlet {
         String salt = "";
         String saltedAndHashedPassword;
         try {
-            hashedPassword = PasswordUtil.hashPassword(user.passWord);
-            salt = PasswordUtil.getSalt();
-            saltedAndHashedPassword = PasswordUtil.hashAndSaltPassword(user.passWord);                    
             
+            salt = PasswordUtil.getSalt();
+            saltedAndHashedPassword = PasswordUtil.hashPassword(s + salt);                    
+            user.setPassWord(saltedAndHashedPassword);
+            user.setSalt(salt);
         } catch (NoSuchAlgorithmException ex) {
             hashedPassword = ex.getMessage();
             saltedAndHashedPassword = ex.getMessage();
         }
-        session.setAttribute("hashedPassword", hashedPassword);
-        session.setAttribute("salt", salt);
-        session.setAttribute("saltedAndHashedPassword", saltedAndHashedPassword);
+      
             
-           request.setAttribute("message", message);  
+            
             
            /*          =================================== */
             
@@ -92,6 +92,16 @@ public class PasswordChangeServlet extends HttpServlet {
             //request.setAttribute("message", message);
             // url = "/index.html";   //
             request.setAttribute("user", user);
+            session.setAttribute("user", user);
+            
+            request.setAttribute("message", message);
+            session.setAttribute("s", s);
+            Date currentDate = new Date();
+            request.setAttribute("currentDate", currentDate);
+  
+           // session.setAttribute("hashedPassword", hashedPassword);
+        session.setAttribute("salt", salt);
+        session.setAttribute("saltedAndHashedPassword", saltedAndHashedPassword);
     
             url = "/Account_activity.jsp";
             // forward request and response objects to specified URL

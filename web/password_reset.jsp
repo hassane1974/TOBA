@@ -34,7 +34,7 @@
             <label>Username:</label>
             <span>${user.userName}</span><br>
             <label class="pad_top">Password:</label>
-    <input type="text" name="NewPassword" value="${user.passWord}"><br>
+    <input type="text" name="NewPassword" value="${password}"><br>
            <%-- <label>Password:</label>
             <span><%= user.getPassWord()%></span><br> 
             <label>New Password:</label> 
